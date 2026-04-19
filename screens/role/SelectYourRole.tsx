@@ -6,7 +6,8 @@ import { useTheme } from "../../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
 import { useGlobalStyles } from "../../styles/globalStyles";
 import GradientButton from "../../components/shared/GradientButton";
-const OnBoardingPage = () => {
+
+const SelectYourRolePage = () => {
   const { theme } = useTheme();
   const [selectedRole, setSelectedRole] = useState<"professional" | "employer">(
     "professional",
@@ -49,7 +50,10 @@ const OnBoardingPage = () => {
         />
       </View>
 
-      <GradientButton title='Continue' />
+      <GradientButton
+        title='Continue'
+        onPress={() => alert("You can press! You can do anything!")}
+      />
     </ThemedView>
   );
 };
@@ -179,4 +183,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnBoardingPage;
+export default SelectYourRolePage;
