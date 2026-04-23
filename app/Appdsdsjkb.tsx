@@ -1,16 +1,12 @@
 import { StyleSheet } from "react-native";
-import AppLayout from "../AppLayout";
-import Home from "../screens/home/Home";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SelectYourRolePage from "../screens/role/SelectYourRole";
+import SelectYourRolePage from "./role/selectrole";
 
 export default function App() {
   return (
-    <AppLayout>
-      <SafeAreaView style={{ flex: 1 }}>
-        <SelectYourRolePage />
-      </SafeAreaView>
-    </AppLayout>
+    <SafeAreaView style={{ flex: 1 }}>
+      <SelectYourRolePage />
+    </SafeAreaView>
   );
 }
 

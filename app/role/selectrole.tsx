@@ -6,12 +6,14 @@ import { useTheme } from "../../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
 import { useGlobalStyles } from "../../styles/globalStyles";
 import GradientButton from "../../components/shared/GradientButton";
+import { useRouter } from "expo-router";
 
 const SelectYourRolePage = () => {
   const { theme } = useTheme();
   const [selectedRole, setSelectedRole] = useState<"professional" | "employer">(
     "professional",
   );
+  const router = useRouter();
 
   return (
     <ThemedView style={styles.container}>
@@ -50,10 +52,7 @@ const SelectYourRolePage = () => {
         />
       </View>
 
-      <GradientButton
-        title='Continue'
-        onPress={() => alert("You can press! You can do anything!")}
-      />
+      <GradientButton title='Continue' onPress={() => router.push("/login")} />
     </ThemedView>
   );
 };

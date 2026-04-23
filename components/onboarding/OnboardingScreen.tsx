@@ -1,0 +1,143 @@
+// import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
+// import React from "react";
+// import ThemedView from "../ui/ThemedView";
+// import ThemedText from "../ui/ThemedText";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { useRouter } from "expo-router";
+
+// const { width, height } = Dimensions.get("window");
+
+// interface Slide {
+//   id: string;
+//   title: string;
+//   desc: string;
+//   color: string;
+// }
+
+// const slides: Slide[] = [
+//   {
+//     id: "1",
+//     title: "Find Jobs Near You",
+//     desc: "Search using your zip code to discover nearby shifts within your preferred radius.",
+//     color: "#0070BA",
+//   },
+//   {
+//     id: "2",
+//     title: "Upload Credentials Securely",
+//     desc: "Your certifications and credentials are protected with bank-level encryption.",
+//     color: "#005DA0",
+//   },
+//   {
+//     id: "3",
+//     title: "Clear Pay. Trusted Work.",
+//     desc: "View flat rates upfront, receive payments securely, and work confidently.",
+//     color: "#004A80",
+//   },
+// ];
+
+// const OnboardingScreen = () => {
+//   const router = useRouter();
+
+//   const handleGetStarted = async () => {
+//     // Save to local storage so onboarding doesn't show again
+//     await AsyncStorage.setItem("hasLaunched", "true");
+//     router.replace("/(auth)/login"); // Adjust path to your login/home route
+//   };
+//   return (
+//     <ThemedView>
+//       <FlatList
+//         data={slides}
+//         keyExtractor={(item) => item.id}
+//         horizontal
+//         pagingEnabled
+//         showsHorizontalScrollIndicator={false}
+//         renderItem={({ item }) => (
+//           <View style={[styles.slide, { backgroundColor: item.color }]}>
+//             {/* The visual 'curve' effect */}
+//             <View style={styles.curveDecorator} />
+
+//             <View style={styles.contentContainer}>
+//               <Text style={styles.title}>{item.title}</Text>
+//               <Text style={styles.subtitle}>{item.desc}</Text>
+//             </View>
+//           </View>
+//         )}
+//       />
+//     </ThemedView>
+//   );
+// };
+
+// export default OnboardingScreen;
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "white",
+//   },
+//   slide: {
+//     width,
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   curveDecorator: {
+//     position: "absolute",
+//     bottom: -height * 0.45, // Moves the "circle" down to create a curve effect
+//     width: width * 2,
+//     height: width * 2,
+//     borderRadius: width,
+//     backgroundColor: "white",
+//   },
+//   contentContainer: {
+//     paddingHorizontal: 40,
+//     alignItems: "center",
+//     marginTop: -100, // Pulls text up above the curve
+//   },
+//   title: {
+//     color: "white",
+//     fontSize: 28,
+//     fontWeight: "bold",
+//     textAlign: "center",
+//     marginBottom: 10,
+//   },
+//   subtitle: {
+//     color: "white",
+//     fontSize: 16,
+//     textAlign: "center",
+//     lineHeight: 22,
+//     opacity: 0.9,
+//   },
+//   footer: {
+//     height: height * 0.2,
+//     justifyContent: "space-between",
+//     paddingHorizontal: 20,
+//     paddingBottom: 40,
+//   },
+//   indicatorContainer: {
+//     flexDirection: "row",
+//     justifyContent: "center",
+//   },
+//   indicator: {
+//     height: 4,
+//     width: 10,
+//     backgroundColor: "#E0E0E0",
+//     marginHorizontal: 4,
+//     borderRadius: 2,
+//   },
+//   activeIndicator: {
+//     backgroundColor: "#0070BA",
+//     width: 25,
+//   },
+//   btn: {
+//     height: 55,
+//     backgroundColor: "#006D77",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     borderRadius: 10,
+//   },
+//   btnText: {
+//     color: "white",
+//     fontSize: 16,
+//     fontWeight: "600",
+//     letterSpacing: 1,
+//   },
+// });
