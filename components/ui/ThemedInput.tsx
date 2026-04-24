@@ -8,14 +8,17 @@ import {
   StyleProp,
   ViewStyle,
   TextStyle,
+  TouchableOpacity,
 } from "react-native";
 import { useTheme } from "../../context/ThemeContext";
+import { Ionicons } from "@expo/vector-icons";
 
 interface ThemedInputProps extends TextInputProps {
   label?: string;
   error?: string;
   containerStyle?: StyleProp<ViewStyle>;
   inputStyle?: StyleProp<TextStyle>;
+  icon?: React.ReactNode; // Add this line
 }
 
 const ThemedInput = ({
@@ -23,14 +26,16 @@ const ThemedInput = ({
   error,
   containerStyle,
   inputStyle,
+  icon, // Destructure icon
   onFocus,
   onBlur,
+  secureTextEntry,
   ...props
 }: ThemedInputProps) => {
   const { theme } = useTheme();
   const [isFocused, setIsFocused] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-  // Handle focus highlights
   const handleFocus = (e: any) => {
     setIsFocused(true);
     onFocus?.(e);
@@ -43,32 +48,52 @@ const ThemedInput = ({
 
   return (
     <View style={[styles.container, containerStyle]}>
-      {/* Label using the title color */}
       {label && (
         <Text style={[styles.label, { color: theme.title }]}>{label}</Text>
       )}
 
-      <TextInput
+      {/* Wrapper View to hold Icon + Input */}
+      <View
         style={[
-          styles.input,
+          styles.inputWrapper,
+          styles.inputShadow,
           {
             backgroundColor: theme.surface,
-            color: theme.text,
             borderColor: error
               ? theme.warning
               : isFocused
                 ? theme.primary
-                : theme.border,
+                : "transparent",
           },
-          inputStyle,
         ]}
-        placeholderTextColor={theme.iconColor}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        {...props}
-      />
+      >
+        {/* Render Icon if it exists */}
+        {icon && <View style={styles.iconContainer}>{icon}</View>}
 
-      {/* Error message using the warning color */}
+        <TextInput
+          style={[styles.input, { color: theme.text }, inputStyle]}
+          placeholderTextColor={theme.iconColor}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          secureTextEntry={secureTextEntry && !passwordVisible}
+          {...props}
+        />
+
+        {/* Password visibility toggle */}
+        {secureTextEntry && (
+          <TouchableOpacity
+            style={styles.eyeIcon}
+            onPress={() => setPasswordVisible(!passwordVisible)}
+          >
+            <Ionicons
+              name={passwordVisible ? "eye-off-outline" : "eye-outline"}
+              size={20}
+              color={theme.iconColor}
+            />
+          </TouchableOpacity>
+        )}
+      </View>
+
       {error && (
         <Text style={[styles.errorText, { color: theme.warning }]}>
           {error}
@@ -77,8 +102,6 @@ const ThemedInput = ({
     </View>
   );
 };
-
-export default ThemedInput;
 
 const styles = StyleSheet.create({
   container: {
@@ -91,12 +114,35 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginLeft: 4,
   },
-  input: {
+  inputWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
     height: 50,
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 15,
+  },
+  inputShadow: {
+    shadowColor: "#0000008b",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 2,
+  },
+  iconContainer: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    height: "100%",
     fontSize: 16,
+  },
+  eyeIcon: {
+    padding: 5,
+    marginLeft: 5,
   },
   errorText: {
     fontSize: 12,
@@ -104,3 +150,5 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
 });
+
+export default ThemedInput;

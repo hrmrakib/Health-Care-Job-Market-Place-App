@@ -75,9 +75,9 @@ const RoleCard = ({
       style={[
         styles.card,
         {
-          backgroundColor: theme.surface,
+          backgroundColor: selected ? theme.background : theme.surface,
           borderColor: selected ? "#27AE60" : "transparent",
-          borderWidth: 2,
+          borderWidth: 0.5,
         },
       ]}
     >

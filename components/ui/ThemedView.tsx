@@ -10,12 +10,12 @@ interface ThemedViewProps {
 const ThemedView = ({
   style,
   children,
-  variant,
+  variant = "primary",
   ...props
 }: ThemedViewProps) => {
   const { theme } = useTheme();
 
-  const background = variant === "primary" ? theme.background : theme.surface;
+  const background = variant === "primary" ? theme.background : "#000000";
 
   return (
     <View

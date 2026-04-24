@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TextStyle,
   StyleProp,
+  View,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -15,6 +16,7 @@ interface GradientButtonProps {
   colors?: readonly [string, string, ...string[]];
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  variant?: "default" | "outlined";
 }
 
 const GradientButton: React.FC<GradientButtonProps> = ({
@@ -23,28 +25,47 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   colors = ["#004A8F", "#008290"],
   style,
   textStyle,
+  variant = "default",
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.8}
-      style={[styles.container, { borderRadius: 8, overflow: "hidden" }]}
+      style={[styles.container, style]}
     >
-      <LinearGradient
-        colors={colors}
-        start={{ x: 0, y: 0.5 }}
-        end={{ x: 1, y: 0.5 }}
-        style={[styles.button, style]}
-      >
-        <Text style={[styles.buttonText, textStyle]}>{title}</Text>
-      </LinearGradient>
+      {variant === "default" ? (
+        <LinearGradient
+          colors={colors}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 1, y: 0.5 }}
+          style={[styles.button]}
+        >
+          <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+        </LinearGradient>
+      ) : (
+        <View
+          style={[
+            styles.button,
+            {
+              backgroundColor: "transparent",
+              borderWidth: 0.5,
+              borderColor: "#0074BE",
+            },
+          ]}
+        >
+          <Text style={[styles.buttonText, { color: "#0074BE" }, textStyle]}>
+            {title}
+          </Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    borderRadius: 8,
+    overflow: "hidden",
   },
   button: {
     width: "100%",
@@ -52,12 +73,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 14,
     paddingHorizontal: 25,
-    borderRadius: 80,
+    borderRadius: 8,
   },
   buttonText: {
     color: "white",
     fontSize: 16,
-    fontWeight: "semibold",
+    fontWeight: "600",
   },
 });
 

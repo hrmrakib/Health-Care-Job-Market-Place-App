@@ -1,11 +1,9 @@
 import React, { createContext, useContext } from "react";
 import { useColorScheme } from "react-native";
-import { Colors } from "../constants/Colors";
-
-type theme = typeof Colors.light;
+import { Colors, Theme } from "../constants/Colors";
 
 type ThemeContextType = {
-  theme: theme;
+  theme: Theme;
   scheme: "light" | "dark";
 };
 
@@ -14,7 +12,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const scheme = useColorScheme() ?? "light";
 
-  const theme = Colors[scheme];
+  const theme: Theme = Colors[scheme];
 
   return (
     <ThemeContext.Provider value={{ theme, scheme }}>
