@@ -1,15 +1,18 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import React, { useState } from "react";
 import ThemedInput from "../ui/ThemedInput";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../../context/ThemeContext";
 import useAuthStore from "../../store/auth/useAuthStore";
+import ThemedText from "../ui/ThemedText";
+import { useRouter } from "expo-router";
 
 type TLoginFormProps = {
   email: string;
   password: string;
 };
 const LoginForm = ({ email, password }: TLoginFormProps) => {
+  const router = useRouter();
   const { theme } = useTheme();
   const setEmail = useAuthStore((s) => s.setEmail);
   const setPassword = useAuthStore((s) => s.setPassword);
@@ -43,12 +46,23 @@ const LoginForm = ({ email, password }: TLoginFormProps) => {
           />
         }
       />
+
+      <Pressable onPress={() => router.push("/forgot-password")}>
+        <Text style={[{ color: theme.warning }, { textAlign: "right" }]}>
+          Forgot Password?
+        </Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { width: "100%", padding: 20, gap: 20 },
+  container: {
+    width: "100%",
+    paddingHorizontal: 12,
+    paddingVertical: 16,
+    gap: 12,
+  },
 });
 
 export default LoginForm;

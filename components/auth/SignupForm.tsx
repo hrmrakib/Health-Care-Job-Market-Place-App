@@ -163,7 +163,12 @@ const RequirementItem = ({ text, met }: { text: string; met: boolean }) => (
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
-  container: { width: "100%", padding: 20, gap: 20 },
+  container: {
+    width: "100%",
+    paddingHorizontal: 12,
+    paddingVertical: 16,
+    gap: 12,
+  },
 
   // Strength
   strengthWrapper: { marginTop: -4 },

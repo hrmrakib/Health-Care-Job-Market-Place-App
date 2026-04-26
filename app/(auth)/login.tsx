@@ -83,36 +83,36 @@ const LoginPage = () => {
               />
             )}
           </View>
+        </View>
 
-          {/* action buttons */}
-          <View style={styles.actions}>
-            <GradientButton
-              title={tab === "login" ? "Log In" : "Sign Up"}
-              onPress={() => {}}
-              style={styles.actionBtn}
-              variant='default'
-            />
-          </View>
+        {/* action buttons */}
+        <View style={styles.actions}>
+          <GradientButton
+            title={tab === "login" ? "Log In" : "Sign Up"}
+            onPress={() => {}}
+            style={styles.actionBtn}
+            variant='default'
+          />
+        </View>
 
-          {/* Footer */}
-          <View style={styles.footerText}>
-            <ThemedText>
-              {tab === "login"
-                ? "Don't have an account?"
-                : "Already have an account?"}
+        {/* Footer */}
+        <View style={styles.footerText}>
+          <ThemedText>
+            {tab === "login"
+              ? "Don't have an account?"
+              : "Already have an account?"}
+          </ThemedText>
+
+          <Pressable
+            onPress={() => {
+              setTab(tab === "login" ? "signup" : "login");
+              reset();
+            }}
+          >
+            <ThemedText style={[styles.footerLink, { color: theme.primary }]}>
+              {tab === "login" ? " Sign Up" : " Log In"}
             </ThemedText>
-
-            <Pressable
-              onPress={() => {
-                setTab(tab === "login" ? "signup" : "login");
-                reset();
-              }}
-            >
-              <ThemedText style={[styles.footerLink, { color: theme.primary }]}>
-                {tab === "login" ? " Sign Up" : " Log In"}
-              </ThemedText>
-            </Pressable>
-          </View>
+          </Pressable>
         </View>
       </ScrollView>
     </ThemedView>
