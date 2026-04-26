@@ -1,5 +1,7 @@
 export interface Theme {
   primary: string;
+  success: string;
+  error: string;
   warning: string;
   text: string;
   title: string;
@@ -15,6 +17,8 @@ export interface Theme {
 export const Colors: { light: Theme; dark: Theme } = {
   dark: {
     primary: "#0074BE",
+    success: "#27AE60",
+    error: "#cc475a",
     warning: "#cc475a",
     text: "#d4d4d4",
     title: "#fff",
@@ -29,6 +33,8 @@ export const Colors: { light: Theme; dark: Theme } = {
 
   light: {
     primary: "#0074BE",
+    success: "#27AE60",
+    error: "#cc475a",
     warning: "#cc475a",
     text: "#4A5565",
     title: "#3E4955",

@@ -119,7 +119,7 @@ const VerifyOtpPage = () => {
       <View style={styles.actions}>
         <GradientButton
           title='Verify Now'
-          onPress={() => console.log("Final OTP:", otp.join(""))}
+          onPress={() => router.push("/reset-password")}
           style={styles.actionBtn}
           variant='default'
         />

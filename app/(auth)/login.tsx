@@ -38,7 +38,7 @@ const LoginPage = () => {
               { color: theme.title },
             ]}
           >
-            Welcome Back {email} {password} {confirmPassword}
+            Welcome Back
           </ThemedText>
 
           <ThemedText style={styles.description}>
