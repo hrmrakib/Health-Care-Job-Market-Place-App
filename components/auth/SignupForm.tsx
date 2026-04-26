@@ -68,7 +68,6 @@ const SignupForm = ({ email, password, confirmPassword }: TSignupFormProps) => {
         }
       />
 
-      {/* ✅ FIX: Password Strength — now fully dynamic, driven by `password` state */}
       <View style={styles.strengthWrapper}>
         <View style={styles.strengthHeader}>
           <Text style={styles.strengthTitle}>Password Strength</Text>

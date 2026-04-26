@@ -17,6 +17,8 @@ const ResetPasswordPage = () => {
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordSuccessfullyReset, setPasswordSuccessfullyReset] =
+    useState(false);
 
   // Requirement Logic
   const requirements = [
@@ -29,15 +31,16 @@ const ResetPasswordPage = () => {
 
   const metCount = requirements.filter((r) => r.met).length;
 
-  return (
-    <SuccessPage
-      title='Reset Password'
-      description='Your password has been successfully reset.'
-      buttonTitle='Back to Login'
-      onButtonPress={() => router.replace("/login")}
-    />
-  );
-
+  if (passwordSuccessfullyReset) {
+    return (
+      <SuccessPage
+        title='Reset Password'
+        description='Your password has been successfully reset.'
+        buttonTitle='Back to Login'
+        onButtonPress={() => router.replace("/login")}
+      />
+    );
+  }
   return (
     <ThemedView style={styles.container}>
       <ScrollView
@@ -166,7 +169,7 @@ const ResetPasswordPage = () => {
         <View style={styles.actions}>
           <GradientButton
             title='Update Password'
-            onPress={() => alert("Password Updated")}
+            onPress={() => setPasswordSuccessfullyReset(true)}
             style={styles.actionBtn}
           />
         </View>
