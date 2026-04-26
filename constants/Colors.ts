@@ -5,6 +5,7 @@ export interface Theme {
   title: string;
   background: string;
   surface: string;
+  link: string;
   navBackground: string;
   border: string;
   iconColor: string;
@@ -19,6 +20,7 @@ export const Colors: { light: Theme; dark: Theme } = {
     title: "#fff",
     background: "#252231",
     surface: "#2f2b3d",
+    link: "#0074BE",
     navBackground: "#201e2b",
     border: "#094786",
     iconColor: "#9591a5",
@@ -32,6 +34,7 @@ export const Colors: { light: Theme; dark: Theme } = {
     title: "#3E4955",
     background: "#F7F9FC",
     surface: "#FFFFFF",
+    link: "#0074BE",
     navBackground: "#e8e7ef",
     border: "#094786",
     iconColor: "#686477",

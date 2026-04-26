@@ -9,7 +9,6 @@ import GradientButton from "../../components/shared/GradientButton";
 import { useRouter } from "expo-router";
 
 const SelectYourRolePage = () => {
-  const { theme } = useTheme();
   const [selectedRole, setSelectedRole] = useState<"professional" | "employer">(
     "professional",
   );
@@ -52,7 +51,12 @@ const SelectYourRolePage = () => {
         />
       </View>
 
-      <GradientButton title='Continue' onPress={() => router.push("/login")} />
+      <View style={styles.bottomContainer}>
+        <GradientButton
+          title='Continue'
+          onPress={() => router.push("/login")}
+        />
+      </View>
     </ThemedView>
   );
 };
@@ -179,6 +183,12 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: 20,
+  },
+  bottomContainer: {
+    position: "absolute",
+    bottom: 40,
+    left: 20,
+    right: 20,
   },
 });
 

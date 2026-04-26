@@ -32,7 +32,5 @@ export default ThemedView;
 const styles = StyleSheet.create({
   defaultLayout: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
