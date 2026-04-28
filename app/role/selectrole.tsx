@@ -56,6 +56,10 @@ const SelectYourRolePage = () => {
           title='Continue'
           onPress={() => router.push("/login")}
         />
+        <GradientButton
+          title='Profile'
+          onPress={() => router.push("/job-seeker-profile/step-1")}
+        />
       </View>
     </ThemedView>
   );
