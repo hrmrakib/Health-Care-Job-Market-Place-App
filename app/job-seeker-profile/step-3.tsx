@@ -11,7 +11,6 @@ import {
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../../context/ThemeContext";
-import { SafeAreaView } from "react-native-safe-area-context";
 import ThemedView from "../../components/ui/ThemedView";
 import ThemedNav from "../../components/ui/ThemedNav";
 import ThemedInput from "../../components/ui/ThemedInput";
