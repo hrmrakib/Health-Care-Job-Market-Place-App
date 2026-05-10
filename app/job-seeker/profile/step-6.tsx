@@ -9,11 +9,11 @@ import {
   Easing,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { useTheme } from "../../context/ThemeContext";
-import ThemedView from "../../components/ui/ThemedView";
-import ThemedNav from "../../components/ui/ThemedNav";
-import ThemedButton from "../../components/ui/ThemedButton";
-import useJobSeekerProfileStore from "../../store/user/useJobSeekerProfileStore";
+import { useTheme } from "../../../context/ThemeContext";
+import ThemedView from "../../../components/ui/ThemedView";
+import ThemedNav from "../../../components/ui/ThemedNav";
+import ThemedButton from "../../../components/ui/ThemedButton";
+import useJobSeekerProfileStore from "../../../store/user/useJobSeekerProfileStore";
 import Svg, { Circle } from "react-native-svg";
 
 const CIRCLE_SIZE = 180;
@@ -56,7 +56,7 @@ function CircularProgress({ percentage }: { percentage: number }) {
           r={RADIUS}
           stroke={theme.navBackground}
           strokeWidth={STROKE_WIDTH}
-          fill="none"
+          fill='none'
         />
         {/* Progress circle */}
         <AnimatedCircle
@@ -65,11 +65,11 @@ function CircularProgress({ percentage }: { percentage: number }) {
           r={RADIUS}
           stroke={theme.primary}
           strokeWidth={STROKE_WIDTH}
-          fill="none"
-          strokeLinecap="round"
+          fill='none'
+          strokeLinecap='round'
           strokeDasharray={CIRCUMFERENCE}
           strokeDashoffset={strokeDashoffset}
-          rotation="-90"
+          rotation='-90'
           origin={`${CIRCLE_SIZE / 2}, ${CIRCLE_SIZE / 2}`}
         />
       </Svg>
@@ -106,12 +106,7 @@ function StrengthBar({ percentage }: { percentage: number }) {
 
   return (
     <View style={styles.strengthTrack}>
-      <Animated.View
-        style={[
-          styles.strengthFill,
-          { width },
-        ]}
-      />
+      <Animated.View style={[styles.strengthFill, { width }]} />
       {/* Thumb indicator */}
       <Animated.View
         style={[
@@ -129,8 +124,7 @@ export default function JobSeekerProfileStep6() {
   const router = useRouter();
   const { theme } = useTheme();
 
-  const { getProfileCompletion, completeProfile } =
-    useJobSeekerProfileStore();
+  const { getProfileCompletion, completeProfile } = useJobSeekerProfileStore();
 
   const profileCompletion = getProfileCompletion();
 
@@ -158,7 +152,7 @@ export default function JobSeekerProfileStep6() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ThemedNav title="Profile Summary" />
+        <ThemedNav title='Profile Summary' />
 
         {/* Subtitle */}
         <Text style={[styles.subtitle, { color: theme.text }]}>
@@ -202,8 +196,8 @@ export default function JobSeekerProfileStep6() {
         ]}
       >
         <ThemedButton
-          title="Skip it For Now"
-          variant="secondary"
+          title='Skip it For Now'
+          variant='secondary'
           onPress={handleSkip}
           style={[
             styles.button,
@@ -213,7 +207,7 @@ export default function JobSeekerProfileStep6() {
           textStyle={{ color: theme.primary }}
         />
         <ThemedButton
-          title="Complete Profile Set Up"
+          title='Complete Profile Set Up'
           onPress={handleCompleteProfile}
           style={styles.button}
         />

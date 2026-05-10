@@ -9,14 +9,14 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "../../context/ThemeContext";
-import ThemedView from "../../components/ui/ThemedView";
-import ThemedNav from "../../components/ui/ThemedNav";
-import ThemedText from "../../components/ui/ThemedText";
-import ThemedInput from "../../components/ui/ThemedInput";
-import ThemedButton from "../../components/ui/ThemedButton";
-import ProgressBar from "../../components/ui/ProgressBar";
-import useJobSeekerProfileStore from "../../store/user/useJobSeekerProfileStore";
+import { useTheme } from "../../../context/ThemeContext";
+import ThemedView from "../../../components/ui/ThemedView";
+import ThemedNav from "../../../components/ui/ThemedNav";
+import ThemedText from "../../../components/ui/ThemedText";
+import ThemedInput from "../../../components/ui/ThemedInput";
+import ThemedButton from "../../../components/ui/ThemedButton";
+import ProgressBar from "../../../components/ui/ProgressBar";
+import useJobSeekerProfileStore from "../../../store/user/useJobSeekerProfileStore";
 
 export default function JobSeekerProfileStep1() {
   const router = useRouter();

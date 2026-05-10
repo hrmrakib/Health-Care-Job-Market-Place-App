@@ -8,15 +8,15 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "../../context/ThemeContext";
-import ThemedView from "../../components/ui/ThemedView";
-import ThemedNav from "../../components/ui/ThemedNav";
-import ThemedInput from "../../components/ui/ThemedInput";
-import ThemedButton from "../../components/ui/ThemedButton";
-import ProgressBar from "../../components/ui/ProgressBar";
-import ThemedSelect from "../../components/ui/ThemedSelect";
-import TagsInput from "../../components/ui/TagsInput";
-import useJobSeekerProfileStore from "../../store/user/useJobSeekerProfileStore";
+import { useTheme } from "../../../context/ThemeContext";
+import ThemedView from "../../../components/ui/ThemedView";
+import ThemedNav from "../../../components/ui/ThemedNav";
+import ThemedInput from "../../../components/ui/ThemedInput";
+import ThemedButton from "../../../components/ui/ThemedButton";
+import ProgressBar from "../../../components/ui/ProgressBar";
+import ThemedSelect from "../../../components/ui/ThemedSelect";
+import TagsInput from "../../../components/ui/TagsInput";
+import useJobSeekerProfileStore from "../../../store/user/useJobSeekerProfileStore";
 
 const ROLE_OPTIONS = [
   { label: "Doctor", value: "Doctor" },

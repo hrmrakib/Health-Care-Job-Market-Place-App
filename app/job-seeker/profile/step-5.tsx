@@ -10,12 +10,12 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "../../context/ThemeContext";
-import ThemedView from "../../components/ui/ThemedView";
-import ThemedNav from "../../components/ui/ThemedNav";
-import ThemedButton from "../../components/ui/ThemedButton";
-import ProgressBar from "../../components/ui/ProgressBar";
-import useJobSeekerProfileStore from "../../store/user/useJobSeekerProfileStore";
+import { useTheme } from "../../../context/ThemeContext";
+import ThemedView from "../../../components/ui/ThemedView";
+import ThemedNav from "../../../components/ui/ThemedNav";
+import ThemedButton from "../../../components/ui/ThemedButton";
+import ProgressBar from "../../../components/ui/ProgressBar";
+import useJobSeekerProfileStore from "../../../store/user/useJobSeekerProfileStore";
 
 export default function JobSeekerProfileStep5() {
   const router = useRouter();
@@ -35,7 +35,7 @@ export default function JobSeekerProfileStep5() {
         uploadBackgroundCheck(
           simulatedFileName,
           `file://${simulatedFileName}`,
-          2048000
+          2048000,
         );
         return;
       }
@@ -58,7 +58,7 @@ export default function JobSeekerProfileStep5() {
         if (file.size && file.size > 10 * 1024 * 1024) {
           Alert.alert(
             "File Too Large",
-            "Maximum file size is 10MB. Please choose a smaller file."
+            "Maximum file size is 10MB. Please choose a smaller file.",
           );
           return;
         }
@@ -66,7 +66,7 @@ export default function JobSeekerProfileStep5() {
         uploadBackgroundCheck(
           file.name || `background_check_${Date.now()}.pdf`,
           file.uri,
-          file.size
+          file.size,
         );
       }
     } catch (error) {
@@ -75,7 +75,7 @@ export default function JobSeekerProfileStep5() {
       uploadBackgroundCheck(
         simulatedFileName,
         `file://${simulatedFileName}`,
-        2048000
+        2048000,
       );
     }
   }, [uploadBackgroundCheck]);
@@ -94,7 +94,7 @@ export default function JobSeekerProfileStep5() {
             setTimeout(() => handlePickDocument(), 300);
           },
         },
-      ]
+      ],
     );
   }, [removeBackgroundCheck, handlePickDocument]);
 
@@ -108,7 +108,7 @@ export default function JobSeekerProfileStep5() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ThemedNav title="Background Check" />
+        <ThemedNav title='Background Check' />
         <ProgressBar step={5} totalSteps={5} percentage={75} />
 
         {/* Accepted Formats Banner */}
@@ -144,7 +144,7 @@ export default function JobSeekerProfileStep5() {
               ]}
             >
               <Ionicons
-                name="cloud-upload-outline"
+                name='cloud-upload-outline'
                 size={32}
                 color={theme.primary}
               />
@@ -158,10 +158,7 @@ export default function JobSeekerProfileStep5() {
           </TouchableOpacity>
         ) : (
           <View
-            style={[
-              styles.uploadedCard,
-              { backgroundColor: theme.surface },
-            ]}
+            style={[styles.uploadedCard, { backgroundColor: theme.surface }]}
           >
             <View style={styles.uploadedCardContent}>
               {/* Document Icon */}
@@ -172,7 +169,7 @@ export default function JobSeekerProfileStep5() {
                 ]}
               >
                 <Ionicons
-                  name="document-text"
+                  name='document-text'
                   size={28}
                   color={theme.primary}
                 />
@@ -202,10 +199,7 @@ export default function JobSeekerProfileStep5() {
 
             {/* Replace Button */}
             <TouchableOpacity
-              style={[
-                styles.replaceButton,
-                { backgroundColor: theme.primary },
-              ]}
+              style={[styles.replaceButton, { backgroundColor: theme.primary }]}
               onPress={handleReplace}
               activeOpacity={0.7}
             >
@@ -226,8 +220,8 @@ export default function JobSeekerProfileStep5() {
         ]}
       >
         <ThemedButton
-          title="Back"
-          variant="secondary"
+          title='Back'
+          variant='secondary'
           onPress={() => router.back()}
           style={[
             styles.button,
@@ -237,7 +231,7 @@ export default function JobSeekerProfileStep5() {
           textStyle={{ color: theme.primary }}
         />
         <ThemedButton
-          title="Save & Continue"
+          title='Save & Continue'
           onPress={handleSaveAndContinue}
           style={styles.button}
         />

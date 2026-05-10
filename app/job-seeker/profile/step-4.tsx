@@ -10,15 +10,15 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "../../context/ThemeContext";
-import ThemedView from "../../components/ui/ThemedView";
-import ThemedNav from "../../components/ui/ThemedNav";
-import ThemedButton from "../../components/ui/ThemedButton";
-import ProgressBar from "../../components/ui/ProgressBar";
+import { useTheme } from "../../../context/ThemeContext";
+import ThemedView from "../../../components/ui/ThemedView";
+import ThemedNav from "../../../components/ui/ThemedNav";
+import ThemedButton from "../../../components/ui/ThemedButton";
+import ProgressBar from "../../../components/ui/ProgressBar";
 import useJobSeekerProfileStore, {
   DocumentItem,
   DocumentStatus,
-} from "../../store/user/useJobSeekerProfileStore";
+} from "../../../store/user/useJobSeekerProfileStore";
 
 // Status configuration for visual styling
 const STATUS_CONFIG: Record<
@@ -53,7 +53,7 @@ export default function JobSeekerProfileStep4() {
     useJobSeekerProfileStore();
 
   const uploadedCount = documents.filter(
-    (doc) => doc.status !== "required"
+    (doc) => doc.status !== "required",
   ).length;
   const totalCount = documents.length;
 
@@ -67,7 +67,11 @@ export default function JobSeekerProfileStep4() {
         } catch {
           // Fallback: simulate upload for demo purposes
           const simulatedFileName = `document_${Date.now()}.pdf`;
-          uploadDocument(docId, simulatedFileName, `file://${simulatedFileName}`);
+          uploadDocument(
+            docId,
+            simulatedFileName,
+            `file://${simulatedFileName}`,
+          );
           return;
         }
 
@@ -89,7 +93,7 @@ export default function JobSeekerProfileStep4() {
           if (file.size && file.size > 10 * 1024 * 1024) {
             Alert.alert(
               "File Too Large",
-              "Maximum file size is 10MB. Please choose a smaller file."
+              "Maximum file size is 10MB. Please choose a smaller file.",
             );
             return;
           }
@@ -98,7 +102,7 @@ export default function JobSeekerProfileStep4() {
             docId,
             file.name || `document_${Date.now()}.pdf`,
             file.uri,
-            file.size
+            file.size,
           );
         }
       } catch (error) {
@@ -107,7 +111,7 @@ export default function JobSeekerProfileStep4() {
         uploadDocument(docId, simulatedFileName, `file://${simulatedFileName}`);
       }
     },
-    [uploadDocument]
+    [uploadDocument],
   );
 
   const handleRemoveDocument = useCallback(
@@ -122,10 +126,10 @@ export default function JobSeekerProfileStep4() {
             style: "destructive",
             onPress: () => removeDocument(docId),
           },
-        ]
+        ],
       );
     },
-    [removeDocument]
+    [removeDocument],
   );
 
   const handleNext = () => {
@@ -184,7 +188,7 @@ export default function JobSeekerProfileStep4() {
               { backgroundColor: iconColor + "18" },
             ]}
           >
-            <Ionicons name="document-text" size={22} color={iconColor} />
+            <Ionicons name='document-text' size={22} color={iconColor} />
           </View>
 
           {/* Center content */}
@@ -242,7 +246,7 @@ export default function JobSeekerProfileStep4() {
         {/* For valid documents, show a subtle checkmark instead */}
         {doc.status === "valid" && (
           <View style={styles.validIndicator}>
-            <Ionicons name="checkmark-circle" size={20} color="#27AE60" />
+            <Ionicons name='checkmark-circle' size={20} color='#27AE60' />
             <Text style={[styles.validText, { color: "#27AE60" }]}>
               Document verified
             </Text>
@@ -258,7 +262,7 @@ export default function JobSeekerProfileStep4() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ThemedNav title="Upload Documents" />
+        <ThemedNav title='Upload Documents' />
         <ProgressBar step={4} totalSteps={5} percentage={75} />
 
         {/* Header Section - Counter & Info */}
@@ -281,7 +285,7 @@ export default function JobSeekerProfileStep4() {
                 { backgroundColor: "#0074BE15" },
               ]}
             >
-              <Ionicons name="documents" size={28} color={theme.primary} />
+              <Ionicons name='documents' size={28} color={theme.primary} />
             </View>
           </View>
         </View>
@@ -316,8 +320,8 @@ export default function JobSeekerProfileStep4() {
         ]}
       >
         <ThemedButton
-          title="Back"
-          variant="secondary"
+          title='Back'
+          variant='secondary'
           onPress={() => router.back()}
           style={[
             styles.button,
@@ -326,11 +330,7 @@ export default function JobSeekerProfileStep4() {
           ]}
           textStyle={{ color: theme.primary }}
         />
-        <ThemedButton
-          title="Next"
-          onPress={handleNext}
-          style={styles.button}
-        />
+        <ThemedButton title='Next' onPress={handleNext} style={styles.button} />
       </View>
     </ThemedView>
   );
