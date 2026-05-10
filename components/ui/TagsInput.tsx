@@ -70,7 +70,7 @@ const TagsInput = ({
           placeholder={placeholder}
           placeholderTextColor={theme.iconColor}
           onSubmitEditing={handleAddTag}
-          returnKeyType="done"
+          returnKeyType='done'
         />
 
         {suggestedTags.length > 0 && tags.length === 0 && (
@@ -78,10 +78,7 @@ const TagsInput = ({
             {suggestedTags.map((tag) => (
               <TouchableOpacity
                 key={tag}
-                style={[
-                  styles.suggestedTag,
-                  { borderColor: theme.border },
-                ]}
+                style={[styles.suggestedTag, { borderColor: theme.border }]}
                 onPress={() => handleAddSuggested(tag)}
               >
                 <Text style={[styles.suggestedTagText, { color: theme.text }]}>
@@ -92,36 +89,35 @@ const TagsInput = ({
           </View>
         )}
 
+        <View style={{ height: 8 }} />
+
         <View style={styles.tagsContainer}>
           {tags.map((tag) => (
             <View
               key={tag}
-              style={[
-                styles.tag,
-                { backgroundColor: theme.primary },
-              ]}
+              style={[styles.tag, { backgroundColor: theme.primary }]}
             >
               <Text style={styles.tagText}>{tag}</Text>
               <TouchableOpacity onPress={() => onRemoveTag(tag)}>
-                <Ionicons name="close" size={16} color="#fff" />
+                <Ionicons name='close' size={16} color='#fff' />
               </TouchableOpacity>
             </View>
           ))}
+
           {/* Display suggestions when some tags are already selected, filtering out chosen ones */}
-          {suggestedTags.filter(t => !tags.includes(t)).map((tag) => (
-            <TouchableOpacity
-              key={tag}
-              style={[
-                styles.suggestedTag,
-                { borderColor: theme.border },
-              ]}
-              onPress={() => handleAddSuggested(tag)}
-            >
-              <Text style={[styles.suggestedTagText, { color: theme.text }]}>
-                {tag}
-              </Text>
-            </TouchableOpacity>
-          ))}
+          {suggestedTags
+            .filter((t) => !tags.includes(t))
+            .map((tag) => (
+              <TouchableOpacity
+                key={tag}
+                style={[styles.suggestedTag, { borderColor: theme.border }]}
+                onPress={() => handleAddSuggested(tag)}
+              >
+                <Text style={[styles.suggestedTagText, { color: theme.text }]}>
+                  {tag}
+                </Text>
+              </TouchableOpacity>
+            ))}
         </View>
       </View>
     </View>

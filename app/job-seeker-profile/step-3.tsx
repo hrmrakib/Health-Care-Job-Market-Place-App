@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -17,11 +17,12 @@ import ThemedInput from "../../components/ui/ThemedInput";
 import ThemedButton from "../../components/ui/ThemedButton";
 import ProgressBar from "../../components/ui/ProgressBar";
 import useJobSeekerProfileStore from "../../store/user/useJobSeekerProfileStore";
+import * as DocumentPicker from "expo-document-picker";
 
 export default function JobSeekerProfileStep3() {
   const router = useRouter();
   const { theme } = useTheme();
-
+  const filePickerRef = useRef<HTMLInputElement>(null);
   const { education, addEducation, removeEducation } =
     useJobSeekerProfileStore();
 
@@ -58,6 +59,21 @@ export default function JobSeekerProfileStep3() {
   const handleNext = () => {
     // Navigate to step 4, currently placeholder
     router.push("/job-seeker-profile/step-4" as any);
+  };
+
+  const pickDocument = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: ["application/pdf", "image/*"],
+        copyToCacheDirectory: true,
+      });
+
+      if (!result.canceled) {
+        console.log(result.assets[0].uri);
+      }
+    } catch (error) {
+      console.error("Error picking document:", error);
+    }
   };
 
   return (
@@ -218,6 +234,7 @@ export default function JobSeekerProfileStep3() {
                       backgroundColor: theme.navBackground,
                     },
                   ]}
+                  onPress={() => pickDocument()}
                 >
                   <View
                     style={[

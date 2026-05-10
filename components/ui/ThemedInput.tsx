@@ -19,6 +19,7 @@ interface ThemedInputProps extends TextInputProps {
   containerStyle?: StyleProp<ViewStyle>;
   inputStyle?: StyleProp<TextStyle>;
   icon?: React.ReactNode; // Add this line
+  multiline?: boolean;
 }
 
 const ThemedInput = ({
@@ -30,6 +31,7 @@ const ThemedInput = ({
   onFocus,
   onBlur,
   secureTextEntry,
+  multiline,
   ...props
 }: ThemedInputProps) => {
   const { theme } = useTheme();
@@ -64,18 +66,32 @@ const ThemedInput = ({
               : isFocused
                 ? theme.primary
                 : "transparent",
+            // Dynamic height: Remove fixed height if multiline is true
+            height: multiline ? undefined : 50,
+            paddingTop: multiline ? 12 : 0,
+            alignItems: multiline ? "flex-start" : "center",
           },
         ]}
       >
         {/* Render Icon if it exists */}
-        {icon && <View style={styles.iconContainer}>{icon}</View>}
+        {icon && (
+          <View style={[styles.iconContainer, multiline && { marginTop: 4 }]}>
+            {icon}
+          </View>
+        )}
 
         <TextInput
-          style={[styles.input, { color: theme.text }, inputStyle]}
+          style={[
+            styles.input,
+            { color: theme.text },
+            multiline && { textAlignVertical: "top", minHeight: 100 },
+            inputStyle,
+          ]}
           placeholderTextColor={theme.iconColor}
           onFocus={handleFocus}
           onBlur={handleBlur}
           secureTextEntry={secureTextEntry && !passwordVisible}
+          multiline={multiline}
           {...props}
         />
 

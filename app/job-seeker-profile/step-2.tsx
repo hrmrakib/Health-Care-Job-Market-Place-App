@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   ScrollView,
-  TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
@@ -165,7 +164,8 @@ export default function JobSeekerProfileStep2() {
               inputStyle={{
                 height: 100,
                 textAlignVertical: "top",
-                paddingTop: 12,
+                paddingTop: 2,
+                paddingBottom: 6,
               }}
             />
           </View>
