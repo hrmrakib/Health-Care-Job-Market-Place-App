@@ -70,7 +70,7 @@ export default function JobSeekerProfileStep2() {
 
   const handleNext = () => {
     // Validation logic could go here
-    router.push("/job-seeker-profile/step-3");
+    router.push("/job-seeker/profile/step-3");
   };
 
   return (

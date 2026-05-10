@@ -139,11 +139,11 @@ export default function JobSeekerProfileStep6() {
 
   const handleCompleteProfile = () => {
     completeProfile();
-    router.push("/home" as any);
+    router.push("/" as any);
   };
 
   const handleSkip = () => {
-    router.push("/home" as any);
+    router.push("/" as any);
   };
 
   return (

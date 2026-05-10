@@ -27,7 +27,7 @@ export default function JobSeekerProfileStep1() {
 
   const handleNext = () => {
     // Basic validation could go here
-    router.push("/job-seeker-profile/step-2");
+    router.push("/job-seeker/profile/step-2");
   };
 
   return (
@@ -146,7 +146,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   scrollContent: {
     padding: 16,
     paddingBottom: 40,

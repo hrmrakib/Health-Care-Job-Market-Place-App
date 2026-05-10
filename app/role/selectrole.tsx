@@ -61,6 +61,7 @@ const SelectYourRolePage = () => {
           title='Profile'
           style={{ marginTop: 12 }}
           onPress={() => router.push("/employer/profile")}
+          // onPress={() => router.push("/job-seeker/profile/step-1")}
         />
       </View>
     </ThemedView>

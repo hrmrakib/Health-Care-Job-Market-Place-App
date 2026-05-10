@@ -133,7 +133,7 @@ export default function JobSeekerProfileStep4() {
   );
 
   const handleNext = () => {
-    router.push("/job-seeker-profile/step-5" as any);
+    router.push("/job-seeker/profile/step-5");
   };
 
   const getActionButton = (doc: DocumentItem) => {

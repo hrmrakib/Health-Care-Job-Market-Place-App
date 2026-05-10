@@ -99,7 +99,7 @@ export default function JobSeekerProfileStep5() {
   }, [removeBackgroundCheck, handlePickDocument]);
 
   const handleSaveAndContinue = () => {
-    router.push("/job-seeker-profile/step-6" as any);
+    router.push("/job-seeker/profile/step-6");
   };
 
   return (

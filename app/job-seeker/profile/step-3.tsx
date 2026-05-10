@@ -58,7 +58,7 @@ export default function JobSeekerProfileStep3() {
 
   const handleNext = () => {
     // Navigate to step 4, currently placeholder
-    router.push("/job-seeker-profile/step-4" as any);
+    router.push("/job-seeker/profile/step-4");
   };
 
   const pickDocument = async () => {
