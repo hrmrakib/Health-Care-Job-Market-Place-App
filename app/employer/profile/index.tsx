@@ -3,7 +3,6 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -15,7 +14,6 @@ import Feather from "@expo/vector-icons/Feather";
 import ThemedText from "../../../components/ui/ThemedText";
 import { useGlobalStyles } from "../../../styles/globalStyles";
 import ThemedInput from "../../../components/ui/ThemedInput";
-import ThemedButton from "../../../components/ui/ThemedButton";
 import GradientButton from "../../../components/shared/GradientButton";
 
 interface IFormData {
