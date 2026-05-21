@@ -82,7 +82,7 @@ const BottomTabBar = ({
               style={[
                 styles.iconWrapper,
                 isFocused && {
-                  backgroundColor: `${theme.primary}15`,
+                  backgroundColor: `${theme.primary}35`,
                 },
               ]}
             >

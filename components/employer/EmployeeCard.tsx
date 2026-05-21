@@ -50,15 +50,12 @@ const EmployeeCard = ({
       <View style={styles.topRow}>
         <View style={styles.profileSection}>
           <View
-            style={[
-              styles.avatar,
-              { backgroundColor: theme.navBackground },
-            ]}
+            style={[styles.avatar, { backgroundColor: theme.navBackground }]}
           >
             {avatarUri ? (
               <Image source={{ uri: avatarUri }} style={styles.avatarImage} />
             ) : (
-              <Ionicons name="person" size={28} color={theme.iconColor} />
+              <Ionicons name='person' size={28} color={theme.iconColor} />
             )}
           </View>
           <View style={styles.nameSection}>
@@ -71,7 +68,7 @@ const EmployeeCard = ({
               </ThemedText>
               <TagBadge
                 label={status}
-                variant="status"
+                variant='status'
                 color={statusColor || theme.success}
                 style={styles.statusBadge}
               />
@@ -79,7 +76,7 @@ const EmployeeCard = ({
           </View>
         </View>
         <View style={styles.ratingContainer}>
-          <Ionicons name="star" size={14} color="#F4B740" />
+          <Ionicons name='star' size={14} color='#F4B740' />
           <ThemedText style={styles.ratingText}>{rating}</ThemedText>
         </View>
       </View>
@@ -87,11 +84,7 @@ const EmployeeCard = ({
       {/* Details */}
       <View style={styles.detailsSection}>
         <View style={styles.detailRow}>
-          <Ionicons
-            name="location-outline"
-            size={16}
-            color={theme.iconColor}
-          />
+          <Ionicons name='location-outline' size={16} color={theme.iconColor} />
           <ThemedText style={styles.detailText}>{location}</ThemedText>
         </View>
         <View style={styles.detailRow}>
@@ -102,15 +95,23 @@ const EmployeeCard = ({
             {salary}
           </ThemedText>
         </View>
-        <View style={styles.detailRow}>
-          <Ionicons
-            name="moon-outline"
-            size={16}
-            color={theme.iconColor}
-          />
-          <ThemedText style={styles.detailText}>
-            {shift} • {shiftType}
-          </ThemedText>
+        <View
+          style={[
+            styles.detailRow,
+            {
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            },
+          ]}
+        >
+          <View style={styles.detailRow}>
+            <Ionicons name='moon-outline' size={16} color={theme.iconColor} />
+            <ThemedText style={styles.detailText}>
+              {shift} • {shiftType}
+            </ThemedText>
+          </View>
           <ThemedText style={[styles.dateText, { marginLeft: 12 }]}>
             {date}
           </ThemedText>
@@ -121,14 +122,8 @@ const EmployeeCard = ({
       <View style={styles.bottomRow}>
         {timeRemaining && (
           <View style={styles.timeRow}>
-            <Ionicons
-              name="time-outline"
-              size={14}
-              color={theme.primary}
-            />
-            <ThemedText
-              style={[styles.timeText, { color: theme.primary }]}
-            >
+            <Ionicons name='time-outline' size={14} color={theme.primary} />
+            <ThemedText style={[styles.timeText, { color: theme.primary }]}>
               {timeRemaining}
             </ThemedText>
           </View>
@@ -143,17 +138,14 @@ const EmployeeCard = ({
           </TouchableOpacity>
           <TouchableOpacity onPress={onMessage} style={styles.actionIcon}>
             <Ionicons
-              name="chatbubble-ellipses-outline"
+              name='chatbubble-ellipses-outline'
               size={20}
               color={theme.iconColor}
             />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={onViewDetails}
-            style={[
-              styles.viewDetailsBtn,
-              { backgroundColor: theme.primary },
-            ]}
+            style={[styles.viewDetailsBtn, { backgroundColor: theme.primary }]}
           >
             <ThemedText style={styles.viewDetailsBtnText}>
               View Details
@@ -282,6 +274,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   actionIcon: {
+    backgroundColor: "#E5F1FF",
+    borderRadius: 24,
     padding: 4,
   },
   viewDetailsBtn: {
