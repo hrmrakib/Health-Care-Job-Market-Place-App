@@ -25,8 +25,8 @@ const EmployerHome = () => {
   return (
     <ThemedView style={styles.container}>
       <HeaderBar
-        title="City Hospital"
-        subtitle="Post & Hire"
+        title='City Hospital'
+        subtitle='Post & Hire'
         rightActions={{
           heart: true,
           message: true,
@@ -40,28 +40,42 @@ const EmployerHome = () => {
         {/* Stats Row */}
         <View style={styles.statsRow}>
           <StatCard
-            icon={<Ionicons name="briefcase-outline" size={24} color={theme.primary} />}
+            icon={
+              <Ionicons
+                name='briefcase-outline'
+                size={24}
+                color={theme.primary}
+              />
+            }
             count={12}
-            label="Active Jobs"
+            label='Active Jobs'
             iconBackgroundColor={theme.primary}
           />
           <StatCard
-            icon={<Ionicons name="people-outline" size={24} color={theme.error} />}
+            icon={
+              <Ionicons name='people-outline' size={24} color={theme.error} />
+            }
             count={48}
-            label="Completed"
+            label='Completed'
             iconBackgroundColor={theme.error}
           />
           <StatCard
-            icon={<Ionicons name="person-add-outline" size={24} color={theme.success} />}
+            icon={
+              <Ionicons
+                name='person-add-outline'
+                size={24}
+                color={theme.success}
+              />
+            }
             count={8}
-            label="Upcoming"
+            label='Upcoming'
             iconBackgroundColor={theme.success}
           />
         </View>
 
         {/* Post Job Action */}
         <GradientButton
-          title="+ Post a New Job"
+          title='+ Post a New Job'
           onPress={handlePostJob}
           style={styles.postJobBtn}
         />
@@ -75,51 +89,51 @@ const EmployerHome = () => {
 
         {/* Dummy List */}
         <EmployeeCard
-          name="Miss. Sarah"
-          role="CNA"
-          status="Upcoming"
+          name='Miss. Sarah'
+          role='CNA'
+          status='Upcoming'
           statusColor={theme.iconColor}
           rating={4.8}
-          location="Los Angeles, CA"
-          salary="22 / hour"
-          shift="Night Shift"
-          shiftType="Full-time"
-          date="12 March, 2026"
-          timeRemaining="8h remaining"
+          location='Los Angeles, CA'
+          salary='22 / hour'
+          shift='Night Shift'
+          shiftType='Full-time'
+          date='12 March, 2026'
+          timeRemaining='8h remaining'
           onViewDetails={handleViewDetails}
-          avatarUri="https://randomuser.me/api/portraits/women/44.jpg"
+          avatarUri='https://randomuser.me/api/portraits/women/44.jpg'
         />
 
         <EmployeeCard
-          name="Miss. Sarah"
-          role="CNA"
-          status="Upcoming"
+          name='Miss. Sarah'
+          role='CNA'
+          status='Upcoming'
           statusColor={theme.iconColor}
           rating={4.8}
-          location="Los Angeles, CA"
-          salary="22 / hour"
-          shift="Night Shift"
-          shiftType="Full-time"
-          date="12 March, 2026"
-          timeRemaining="8h remaining"
+          location='Los Angeles, CA'
+          salary='22 / hour'
+          shift='Night Shift'
+          shiftType='Full-time'
+          date='12 March, 2026'
+          timeRemaining='8h remaining'
           onViewDetails={handleViewDetails}
-          avatarUri="https://randomuser.me/api/portraits/women/45.jpg"
+          avatarUri='https://randomuser.me/api/portraits/women/45.jpg'
         />
 
         <EmployeeCard
-          name="Miss. Sarah"
-          role="CNA"
-          status="Upcoming"
+          name='Miss. Sarah'
+          role='CNA'
+          status='Upcoming'
           statusColor={theme.iconColor}
           rating={4.8}
-          location="Los Angeles, CA"
-          salary="22 / hour"
-          shift="Night Shift"
-          shiftType="Full-time"
-          date="12 March, 2026"
-          timeRemaining="8h remaining"
+          location='Los Angeles, CA'
+          salary='22 / hour'
+          shift='Night Shift'
+          shiftType='Full-time'
+          date='12 March, 2026'
+          timeRemaining='8h remaining'
           onViewDetails={handleViewDetails}
-          avatarUri="https://randomuser.me/api/portraits/women/46.jpg"
+          avatarUri='https://randomuser.me/api/portraits/women/46.jpg'
         />
       </ScrollView>
     </ThemedView>

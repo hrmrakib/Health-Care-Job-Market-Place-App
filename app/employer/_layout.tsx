@@ -16,7 +16,7 @@ export default function EmployerLayout() {
         }}
       />
       <Tabs.Screen
-        name='create-job'
+        name='all-jobs'
         options={{
           title: "Jobs", // "Jobs" tab usually handles creation/listing
         }}
