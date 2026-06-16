@@ -55,6 +55,7 @@ const ProfilePage = () => {
               Tell us about your healthcare organization
             </ThemedText>
           </View>
+
           {/* profile card */}
           <View
             style={[styles.profileCard, { backgroundColor: theme.surface }]}
@@ -226,7 +227,7 @@ const styles = StyleSheet.create({
   formWrapper: {
     marginTop: 8,
     borderRadius: 24,
-    shadowColor: "#000",
+    // shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 10,
