@@ -17,7 +17,7 @@ const CandidateProfile = () => {
   return (
     <ThemedView style={styles.container}>
       <HeaderBar
-        title="Candidate Profile"
+        title='Candidate Profile'
         showBackButton
         onBack={() => router.back()}
         rightActions={{ heart: true }}
@@ -36,20 +36,32 @@ const CandidateProfile = () => {
                 <ThemedText title style={styles.name}>
                   Sarah Johnson
                 </ThemedText>
-                <View style={[styles.ratingBadge, { backgroundColor: "#FFF4E5" }]}>
-                  <Ionicons name="star" size={14} color="#F4B740" />
+                <View
+                  style={[styles.ratingBadge, { backgroundColor: "#FFF4E5" }]}
+                >
+                  <Ionicons name='star' size={14} color='#F4B740' />
                   <ThemedText style={styles.ratingText}>4.8</ThemedText>
                 </View>
               </View>
               <View style={styles.roleLocation}>
                 <View style={styles.iconTextRow}>
-                  <Ionicons name="ribbon-outline" size={16} color={theme.primary} />
-                  <ThemedText style={[styles.roleText, { color: theme.primary }]}>
+                  <Ionicons
+                    name='ribbon-outline'
+                    size={16}
+                    color={theme.primary}
+                  />
+                  <ThemedText
+                    style={[styles.roleText, { color: theme.primary }]}
+                  >
                     Registered Nurse
                   </ThemedText>
                 </View>
                 <View style={[styles.iconTextRow, { marginTop: 4 }]}>
-                  <Ionicons name="location-outline" size={16} color={theme.iconColor} />
+                  <Ionicons
+                    name='location-outline'
+                    size={16}
+                    color={theme.iconColor}
+                  />
                   <ThemedText style={styles.locationText}>
                     San Francisco, CA
                   </ThemedText>
@@ -58,90 +70,132 @@ const CandidateProfile = () => {
             </View>
           </View>
 
-          <View style={[styles.experienceBox, { backgroundColor: `${theme.success}10` }]}>
+          <View
+            style={[
+              styles.experienceBox,
+              { backgroundColor: `${theme.success}10` },
+            ]}
+          >
             <View style={styles.experienceHeader}>
-              <Ionicons name="ribbon" size={16} color={theme.iconColor} />
-              <ThemedText style={styles.experienceTitle}>5 years experience</ThemedText>
+              <Ionicons name='ribbon' size={16} color={theme.iconColor} />
+              <ThemedText style={styles.experienceTitle}>
+                5 years experience
+              </ThemedText>
             </View>
             <ThemedText style={styles.bioText}>
-              Motivated and detail-oriented individual seeking opportunities to apply my skills, grow professionally, and contribute effectively to a dynamic organization.
+              Motivated and detail-oriented individual seeking opportunities to
+              apply my skills, grow professionally, and contribute effectively
+              to a dynamic organization.
             </ThemedText>
           </View>
 
           <View style={styles.contactRow}>
             <View style={styles.contactItem}>
-              <View style={[styles.contactIconBg, { backgroundColor: `${theme.primary}15` }]}>
-                <Ionicons name="mail-outline" size={20} color={theme.primary} />
+              <View
+                style={[
+                  styles.contactIconBg,
+                  { backgroundColor: `${theme.primary}15` },
+                ]}
+              >
+                <Ionicons name='mail-outline' size={20} color={theme.primary} />
               </View>
               <View>
                 <ThemedText style={styles.contactLabel}>Email</ThemedText>
-                <ThemedText style={styles.contactValue}>sarah.johnson@</ThemedText>
+                <ThemedText style={styles.contactValue}>
+                  sarah.johnson@gmail.com
+                </ThemedText>
               </View>
             </View>
             <View style={styles.verticalDivider} />
             <View style={styles.contactItem}>
-              <View style={[styles.contactIconBg, { backgroundColor: `${theme.success}15` }]}>
-                <Ionicons name="call-outline" size={20} color={theme.success} />
+              <View
+                style={[
+                  styles.contactIconBg,
+                  { backgroundColor: `${theme.success}15` },
+                ]}
+              >
+                <Ionicons name='call-outline' size={20} color={theme.success} />
               </View>
               <View>
                 <ThemedText style={styles.contactLabel}>Phone</ThemedText>
-                <ThemedText style={styles.contactValue}>+1 (415) 555-01</ThemedText>
+                <ThemedText style={styles.contactValue}>
+                  +1 (415) 555-01452
+                </ThemedText>
               </View>
             </View>
           </View>
         </View>
 
         {/* Certificate Section */}
-        <SectionTitle title="Certificate" style={{ marginTop: 20 }} />
+        <SectionTitle title='Certificate' style={{ marginTop: 20 }} />
         <View style={[styles.card, { backgroundColor: theme.surface }]}>
           <View style={styles.tagsContainer}>
-            <TagBadge label="BLS" />
-            <TagBadge label="ACLS" />
-            <TagBadge label="PALS" />
-            <TagBadge label="RN License" />
-            <TagBadge label="CNA License" />
-            <TagBadge label="CPR Certified" />
+            <TagBadge label='BLS' />
+            <TagBadge label='ACLS' />
+            <TagBadge label='PALS' />
+            <TagBadge label='RN License' />
+            <TagBadge label='CNA License' />
+            <TagBadge label='CPR Certified' />
           </View>
         </View>
 
         {/* Documents Section */}
-        <SectionTitle title="Documents" style={{ marginTop: 20 }} />
-        <View style={[styles.card, { backgroundColor: theme.surface, padding: 0 }]}>
+        <SectionTitle title='Documents' style={{ marginTop: 20 }} />
+        <View
+          style={[styles.card, { backgroundColor: theme.surface, padding: 0 }]}
+        >
           <View style={styles.documentRow}>
             <ThemedText style={styles.docName}>Resume</ThemedText>
-            <Ionicons name="arrow-down-circle-outline" size={24} color={theme.primary} />
+            <Ionicons
+              name='arrow-down-circle-outline'
+              size={24}
+              color={theme.primary}
+            />
           </View>
         </View>
 
         {/* Skills Section */}
-        <SectionTitle title="Skills" style={{ marginTop: 20 }} />
+        <SectionTitle title='Skills' style={{ marginTop: 20 }} />
         <View style={[styles.card, { backgroundColor: theme.surface }]}>
           <View style={styles.tagsContainer}>
-            <TagBadge label="Vital Signs" />
-            <TagBadge label="CPR" />
-            <TagBadge label="Medical Records" />
-            <TagBadge label="IV Therapy" />
-            <TagBadge label="Wound Care" />
+            <TagBadge label='Vital Signs' />
+            <TagBadge label='CPR' />
+            <TagBadge label='Medical Records' />
+            <TagBadge label='IV Therapy' />
+            <TagBadge label='Wound Care' />
           </View>
         </View>
 
         {/* Education Section */}
-        <SectionTitle title="Education" style={{ marginTop: 20 }} />
+        <SectionTitle title='Education' style={{ marginTop: 20 }} />
         <View style={[styles.card, { backgroundColor: theme.surface }]}>
           <View style={styles.eduHeader}>
             <View style={[styles.eduIconBg, { backgroundColor: "#FFF4E5" }]}>
-              <Ionicons name="school-outline" size={24} color="#F4B740" />
+              <Ionicons name='school-outline' size={24} color='#F4B740' />
             </View>
             <View style={styles.eduInfo}>
-              <ThemedText title style={styles.eduDegree}>H.S.C</ThemedText>
-              <ThemedText style={styles.eduSchool}>Hashil School & College</ThemedText>
+              <ThemedText title style={styles.eduDegree}>
+                H.S.C
+              </ThemedText>
+              <ThemedText style={styles.eduSchool}>
+                Hashil School & College
+              </ThemedText>
               <View style={styles.eduMetaRow}>
                 <ThemedText style={styles.eduYear}>2013 • </ThemedText>
-                <TagBadge label="Completed" variant="status" color={theme.success} style={{ paddingVertical: 0, paddingHorizontal: 6 }} />
+                <TagBadge
+                  label='Completed'
+                  variant='status'
+                  color={theme.success}
+                  style={{ paddingVertical: 0, paddingHorizontal: 6 }}
+                />
               </View>
               <ThemedText style={styles.eduLicense}>License: N/A</ThemedText>
               <View style={[styles.iconTextRow, { marginTop: 4 }]}>
-                <Ionicons name="document-text-outline" size={16} color={theme.primary} />
+                <Ionicons
+                  name='document-text-outline'
+                  size={16}
+                  color={theme.primary}
+                />
                 <ThemedText style={[styles.eduCert, { color: theme.primary }]}>
                   Certificate.png
                 </ThemedText>
@@ -150,10 +204,7 @@ const CandidateProfile = () => {
           </View>
         </View>
 
-        <GradientButton
-          title="Send Message"
-          style={styles.sendMsgBtn}
-        />
+        <GradientButton title='Send Message' style={styles.sendMsgBtn} />
       </ScrollView>
     </ThemedView>
   );
@@ -251,7 +302,9 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   contactRow: {
-    flexDirection: "row",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    gap: 8,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: "#e0e0e0",
     paddingTop: 16,
