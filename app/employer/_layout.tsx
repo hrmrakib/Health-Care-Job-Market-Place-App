@@ -29,9 +29,17 @@ export default function EmployerLayout() {
       />
 
       <Tabs.Screen
-        name='profile/index'
+        name='profile'
         options={{
           title: "Profile",
+        }}
+      />
+      {/* Notifications screen — hidden from tab bar, accessed via header bell icon */}
+      <Tabs.Screen
+        name='notifications'
+        options={{
+          title: "Notifications",
+          href: null, // hides from tab bar
         }}
       />
     </Tabs>

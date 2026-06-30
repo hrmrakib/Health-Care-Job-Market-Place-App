@@ -204,7 +204,11 @@ const CandidateProfile = () => {
           </View>
         </View>
 
-        <GradientButton title='Send Message' style={styles.sendMsgBtn} />
+        <GradientButton
+          title='Send Message'
+          style={styles.sendMsgBtn}
+          onPress={() => router.push("/messages")}
+        />
       </ScrollView>
     </ThemedView>
   );

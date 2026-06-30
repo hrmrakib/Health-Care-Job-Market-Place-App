@@ -22,6 +22,10 @@ interface HeaderBarProps {
     notification?: boolean;
     notificationCount?: number;
   };
+  /** Called when the message icon is pressed */
+  onMessagePress?: () => void;
+  /** Called when the notification bell icon is pressed */
+  onNotificationPress?: () => void;
   rightElement?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
 }
@@ -32,6 +36,8 @@ const HeaderBar = ({
   showBackButton = false,
   onBack,
   rightActions,
+  onMessagePress,
+  onNotificationPress,
   rightElement,
   style,
 }: HeaderBarProps) => {
@@ -62,7 +68,7 @@ const HeaderBar = ({
           </TouchableOpacity>
         )}
         {rightActions?.message && (
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton} onPress={onMessagePress}>
             <Ionicons
               name="chatbubble-ellipses-outline"
               size={22}
@@ -78,7 +84,7 @@ const HeaderBar = ({
           </TouchableOpacity>
         )}
         {rightActions?.notification && (
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton} onPress={onNotificationPress}>
             <Ionicons
               name="notifications-outline"
               size={22}
