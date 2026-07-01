@@ -22,9 +22,9 @@ export default function EmployerLayout() {
         }}
       />
       <Tabs.Screen
-        name='favorites'
+        name='payments'
         options={{
-          title: "Payments", // Repurposing Payments tab in mockup temporarily if needed, or we just map it. The UI has Home | Jobs | Payments | Profile
+          title: "Payments",
         }}
       />
 
